@@ -14,4 +14,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "notifykt"
-include(":notifykt")
+include(
+    ":notifykt-common",
+    ":notifykt-android",
+    ":notifykt-ios",
+)
