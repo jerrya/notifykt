@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 
 @Composable
-fun rememberNotificationPermission(
+fun androidRememberNotificationPermission(
     onComplete: (PermissionRequestState.PermissionRequestStatus) -> Unit,
 ): PermissionRequestState {
     val launcher =

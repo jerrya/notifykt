@@ -1,15 +1,10 @@
 package io.github.jerrya.notifykt
 
+//import androidx.compose.runtime.Composable
 import platform.UserNotifications.UNAuthorizationOptionAlert
 import platform.UserNotifications.UNAuthorizationOptionBadge
 import platform.UserNotifications.UNAuthorizationOptionSound
 import platform.UserNotifications.UNUserNotificationCenter
-//import androidx.compose.runtime.Composable
-import kotlinx.coroutines.suspendCancellableCoroutine
-import platform.UserNotifications.UNAuthorizationStatusAuthorized
-import platform.UserNotifications.UNAuthorizationStatusDenied
-import platform.UserNotifications.UNAuthorizationStatusNotDetermined
-import kotlin.coroutines.resume
 
 //@Composable
 fun rememberNotificationPermission(

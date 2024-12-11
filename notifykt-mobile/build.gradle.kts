@@ -4,34 +4,39 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-//    alias(libs.plugins.composeCompiler)
-//    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.composeMultiplatform)
 }
 
 kotlin {
-//    androidTarget {
-//        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-//        compilerOptions {
-//            jvmTarget.set(JvmTarget.JVM_17)
-//        }
-//    }
-
+    androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
+    }
+    
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = this.name
+            baseName = "notifykt-mobile"
             isStatic = true
         }
     }
 
     sourceSets {
-        iosMain.dependencies {
-//            implementation(compose.runtime)
+        commonMain.dependencies {
+            implementation(compose.runtime)
             implementation(project(":notifykt-common"))
-            implementation(libs.kotlinx.coroutine)
+        }
+        iosMain.dependencies {
+            implementation(project(":notifykt-ios"))
+        }
+        androidMain.dependencies {
+            implementation(project(":notifykt-android"))
         }
     }
 }

@@ -1,7 +1,7 @@
 [versions]
 agp = "8.5.2"
 android-compileSdk = "34"
-android-minSdk = "24"
+android-minSdk = "28"
 android-targetSdk = "34"
 androidx-startup = "1.2.0"
 compose-multiplatform = "1.7.1"
@@ -9,6 +9,7 @@ kotlin = "2.0.21"
 kotlinx-coroutine = "1.9.0"
 runtimeAndroid = "1.7.5"
 activityCompose = "1.9.3"
+androidx-lifecycle = "2.8.4"
 
 [libraries]
 kotlinx-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutine" }
@@ -16,6 +17,8 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
 androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 
 [plugins]
 vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }

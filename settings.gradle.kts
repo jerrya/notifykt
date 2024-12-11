@@ -18,4 +18,6 @@ include(
     ":notifykt-common",
     ":notifykt-android",
     ":notifykt-ios",
+    ":notifykt-mobile",
 )
+include(":sample:composeApp")

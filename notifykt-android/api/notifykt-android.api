@@ -1,0 +1,3 @@
+public final class io/github/jerrya/notifykt/AndroidPermissionRequestStateKt {
+	public static final fun androidRememberNotificationPermission (Ldev/jordond/connectivity/ConnectivityOptions;Lkotlinx/coroutines/CoroutineScope;Landroidx/compose/runtime/Composer;II)Ldev/jordond/connectivity/compose/ConnectivityState;
+}
