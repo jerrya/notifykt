@@ -1,4 +1,6 @@
-# Notifykt
+# Notifykt (ALPHA)
+
+> This library is in active development and not ready for use yet
 
 
 ## What is it?

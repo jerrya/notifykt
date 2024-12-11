@@ -4,8 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-//    alias(libs.plugins.composeCompiler)
-//    alias(libs.plugins.composeMultiplatform)
 }
 
 kotlin {
@@ -25,11 +23,6 @@ kotlin {
             isStatic = true
         }
     }
-//    sourceSets {
-//        androidMain.dependencies {
-//            implementation(compose.runtime)
-//        }
-//    }
 }
 
 android {
