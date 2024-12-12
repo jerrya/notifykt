@@ -9,19 +9,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import io.github.jerrya.notifykt.PermissionRequestState
+import io.github.jerrya.notifykt.getNotificationPermissionStatusRepository
+import io.github.jerrya.notifykt.permission.NotificationPermissionStatus
 import io.github.jerrya.notifykt.rememberNotificationPermission
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
+        val scope = rememberCoroutineScope()
         var permissionStatusText by remember { mutableStateOf("") }
-        var permissionRequest = rememberNotificationPermission {
+        val permissionRequest = rememberNotificationPermission {
             permissionStatusText = when (it) {
                 PermissionRequestState.PermissionRequestStatus.Authorized -> {
                     "Permissions authorized"
@@ -36,6 +41,31 @@ fun App() {
                 }
             }
         }
+
+        var currentPermissionStatusText by remember { mutableStateOf("") }
+        val permissionStatus = getNotificationPermissionStatusRepository()
+
+        scope.launch {
+            currentPermissionStatusText =
+                when (permissionStatus.getNotificationPermissionStatus()) {
+                    NotificationPermissionStatus.Status.Authorized -> {
+                        "Permissions Authorized"
+                    }
+
+                    NotificationPermissionStatus.Status.Denied -> {
+                        "Permissions Denied"
+                    }
+
+                    NotificationPermissionStatus.Status.Error -> {
+                        "Permissions Error"
+                    }
+
+                    NotificationPermissionStatus.Status.NotDetermined -> {
+                        "Permissions Not Determined"
+                    }
+                }
+        }
+
         var showContent by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Text(permissionStatusText)

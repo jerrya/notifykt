@@ -1,12 +1,10 @@
 package io.github.jerrya.notifykt
 
-//import androidx.compose.runtime.Composable
 import platform.UserNotifications.UNAuthorizationOptionAlert
 import platform.UserNotifications.UNAuthorizationOptionBadge
 import platform.UserNotifications.UNAuthorizationOptionSound
 import platform.UserNotifications.UNUserNotificationCenter
 
-//@Composable
 fun rememberNotificationPermission(
     onComplete: (PermissionRequestState.PermissionRequestStatus) -> Unit
 ): PermissionRequestState {
